@@ -1,0 +1,24 @@
+[
+    {
+        "id":1,
+        "nombre":"Laura Méndez",
+        "puesto": "Fundadora & Paisajista",
+        "descripcion": "Más de 15 años creando jardines sostenibles en Buenos Aires." ,
+        "imagen":"/images/LauraMendez.JPG"
+    },
+    {
+        "id":2,
+        "nombre":"Carlos Ruiz",
+        "puesto": "Especialista en Plantas de Interior",
+        "descripcion":"Experto en plantas tropicales y sistemas de autorriego.",
+        "imagen": "./images/CarlosRuiz.JPG"
+    },
+    {
+        "id":3,
+        "nombre":"Ana Torres",
+        "puesto":"Diseño & E-commerce",
+        "descripcion":"Se asegura de que tu experiencia de compra sea perfecta.",
+        "imagen":"./images/AnaTorres.JPG"
+
+    }
+]

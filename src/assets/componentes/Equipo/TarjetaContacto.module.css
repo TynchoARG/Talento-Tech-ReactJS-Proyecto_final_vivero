@@ -1,0 +1,53 @@
+.cardContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.5rem;
+  width: min(180px, 100%);
+  padding: 0.75rem 0.85rem;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.08);
+  transition: transform 0.20s ease, background 0.20s ease;
+}
+
+.cardContainer:hover {
+  transform: translateY(-3px);
+  background: rgba(255, 255, 255, 0.16);
+}
+
+.cardImage {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1.5px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.1);
+}
+
+.cardText {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  color: var(--texto-claro, #fff);
+}
+
+.cardText h6 {
+  margin: 0;
+  font-size: 0.88rem;
+  font-weight: 700;
+}
+
+.cardText p {
+  margin: 0;
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.cardText small {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.68rem;
+  line-height: 1.3;
+}

@@ -1,0 +1,84 @@
+/*Estilos para el footer*/
+.footer {
+  background-color: var(--verde-principal);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 18px;
+  flex-wrap: wrap;
+  padding: 16px 14px;
+  border-top: 2px solid var(--terracota-suave);
+}
+
+.footer_container {
+  background-color: transparent;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 14px;
+  border-radius: 18px;
+  min-width: 240px;
+  max-width: 340px;
+  box-shadow: none;
+}
+
+.footer_equipo {
+  flex: 1 1 280px;
+  min-width: 240px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.footer_empresa {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.footer_empresa h3 {
+  color: var(--texto-claro);
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+.footer_empresa p {
+  margin: 0;
+  line-height: 1.4;
+  color: var(--texto-claro);
+  font-size: 0.85rem;
+}
+
+.footer_contacto {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  color: var(--texto-claro);
+}
+
+.footer_contacto p,
+.footer_contacto a {
+  margin: 0;
+  font-size: 0.85rem;
+}
+
+.footer_contacto a {
+  color: var(--texto-claro);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.footer_contacto a:hover {
+  color: #f1f7fa;
+}
+
+@media (max-width: 780px) {
+  .footer {
+    justify-content: center;
+    padding: 22px 18px;
+  }
+
+  .footer_container {
+    width: 100%;
+    max-width: none;
+  }
+}

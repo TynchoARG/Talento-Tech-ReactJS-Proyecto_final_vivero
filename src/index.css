@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Nunito:wght@400;500;600&display=swap');
+
+
+/* Variables globales de color*/
+
+:root{
+  --verde-principal: #2F5D50;
+  --verde-suave: #A8B8A0;
+  --fondo: #E8E3DB;
+  --fondo-contenedor:  #F1ECE5;
+  --fondo-imagen:  #ECE7DF;
+  --texto: #2B2B2B;
+  --texto-claro: #f5f2ea;
+  --texto-secundario: #D7E0D2;
+  --terracota: #C97B63;
+  --terracota-suave: #D9A08C;
+
+  --hover: #24473D;
+  --card: #F8F6F2;
+}
+/*
+--------------- Como es el uso ------------------------------
+Uso	                        |   Color	          |    Hex
+-------------------------------------------------------------
+Verde profundo (principal)	|    Verde bosque	  |    #2F5D50
+Verde suave	                |    Salvia	        |    #A8B8A0
+Fondo claro	                |    Marfil cálido  |	   #E8E3DB
+Texto oscuro	              |    Carbón	        |    #2B2B2B
+Acento cálido	              |    Terracota	    |    #C97B63 
+-------------------------------------------------------------
+
+Navbar / Footer: #2F5D50
+Fondo general: #E8E3DB
+Tarjetas de productos: blanco o #F8F6F2
+Botones principales: #2F5D50
+Hover de botones: #24473D
+Detalles/acentos: #C97B63
+Detalles/acentos suaves: #D9A08C;
+Texto principal: #2B2B2B;
+Texto subtitulos: #D7E0D2;
+
+*/
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: content-box;
+}
+
+body {
+  font-family: 'Nunito', sans-serif;
+  margin: 0;
+  background-color: var(--fondo);
+}
