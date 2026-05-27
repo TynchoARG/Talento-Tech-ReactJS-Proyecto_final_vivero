@@ -4,8 +4,9 @@
 
 import { useState } from "react";
 import styles from './Productos.module.css';
+import { Link } from "react-router-dom";
 
-function Item ({nombre, imagen, precio}) {
+function Item ({id, nombre, imagen, precio}) {
 
     const [esFavorito, setEsFavorito] = useState(false)
 
@@ -30,7 +31,8 @@ function Item ({nombre, imagen, precio}) {
             </div>
             <p className={styles.price}>Precio: ${precio}</p>
             <div className={styles.actions}>
-                <button className={styles.btn_detalles}>Detalles</button>
+                <Link to={`/producto/${id}`} className={styles.btn_detalles}>Detalles </Link>
+
                 <button className={styles.btn_agregar} onClick={AgregarClick}>Agregar al carrito</button>
             </div>
         </div>
