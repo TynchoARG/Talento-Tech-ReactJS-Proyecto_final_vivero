@@ -9,7 +9,7 @@ function Header () {
         <header className={styles.header}>
             <div className={styles.header_brand}>
                 <div className={styles.header_logo}>
-                    <img src="./public/images/LogoClaro.png" alt="Logo Vivero Siempre Verde" />
+                    <img src="/images/LogoClaro.png" alt="Logo Vivero Siempre Verde" />
                 </div>
                 <div className={styles.header_text_container}>
                     <h1 className={styles.header_title}>Vivero Siempre Verde</h1>
