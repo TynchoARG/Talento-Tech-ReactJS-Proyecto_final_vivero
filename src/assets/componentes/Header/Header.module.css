@@ -21,8 +21,9 @@
 }
 
 .header_logo img {
-  width: 100px;
+  width: 200px;
   height: auto;
+  object-fit: cover;
 }
 
 .header_text_container {
