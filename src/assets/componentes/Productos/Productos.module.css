@@ -95,6 +95,8 @@
 .btn_detalles {
     background-color: var(--verde-suave);
     color: var(--texto-claro);
+    text-align: center;
+    text-decoration: none;
 }
 
 .btn_detalles:hover {
