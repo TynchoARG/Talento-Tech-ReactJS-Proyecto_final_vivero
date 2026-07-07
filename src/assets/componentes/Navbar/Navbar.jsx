@@ -9,6 +9,7 @@ function Navbar () {
         <nav className={Styles.Navbar}>
             <ul className={Styles.ul}>
                 <li><Link to="/">Inicio</Link></li>
+                <li><Link to="/nosotros">Nosotros</Link></li>
                 <li><Link to="/productos">Productos</Link></li>
                 <li><Link to="/carrito">Carrito</Link></li>
             </ul>

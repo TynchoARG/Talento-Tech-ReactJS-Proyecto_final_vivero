@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 const ProductoDetalle = () => {
     const { id } = useParams();
@@ -30,6 +30,8 @@ const ProductoDetalle = () => {
             <img src={producto.imagen} alt={producto.nombre} width="300" height="300"/>
             <h3>${producto.precio}</h3>
             <p>{producto.detalle}</p>
+            <Link to={'/productos'}>Volver al catalogo</Link>
+            
         </div>
     );
 };

@@ -1,0 +1,28 @@
+.nosotros_page {
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ gap: 24px;
+ padding: 40px 24px 40px;
+ background-color: var(--fondo);
+ min-height: calc(100vh - 80px);
+}
+
+.nosotros_container {
+  width: min(100%, 1200px);
+  align-items: center;
+  text-align: center;
+  background: var(--fondo-contenedor);
+  border-radius: 24px;
+  padding: 28px 30px;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  padding: 30px;
+  margin: 50px;
+}
+
+.nosotros_container h1 {
+  font-size: clamp(2rem, 2.2vw, 2.6rem);
+  margin-bottom: 12px;
+  color: var(--texto);
+}
