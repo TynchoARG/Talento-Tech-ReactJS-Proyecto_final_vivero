@@ -3,15 +3,20 @@
 
 import { Link } from 'react-router-dom';
 import Styles from './Navbar.module.css';
+import { useCart } from '../../../Context/CartContext';
 
 function Navbar () {
+// Usamos el hook personalizado para acceder a la función.
+    const { getCartQuantity } = useCart();
+    const totalItems = getCartQuantity();
+
     return(
         <nav className={Styles.Navbar}>
             <ul className={Styles.ul}>
                 <li><Link to="/">Inicio</Link></li>
                 <li><Link to="/nosotros">Nosotros</Link></li>
                 <li><Link to="/productos">Productos</Link></li>
-                <li><Link to="/carrito">Carrito</Link></li>
+                <li><Link to="/carrito">Carrito 🛒 {totalItems > 0 && <span>totalItems</span>} </Link></li>
             </ul>
         </nav>
     );

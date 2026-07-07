@@ -3,10 +3,15 @@
 // Recibe los nombres
 
 import { useState } from "react";
+import { useCart } from "../../../Context/CartContext";
 import styles from './Productos.module.css';
 import { Link } from "react-router-dom";
 
 function Item ({id, nombre, imagen, precio}) {
+
+    const producto = {id, nombre, imagen, precio};
+
+    const [cantidad, setCantidad] = useState(0);
 
     const [esFavorito, setEsFavorito] = useState(false)
 
@@ -16,6 +21,14 @@ function Item ({id, nombre, imagen, precio}) {
 
     const MarcarComoFavorito = () => {
             setEsFavorito(!esFavorito)
+    };
+
+//Lógica del carrito
+    const { addToCart } = useCart(); //Esta es la función del contexto
+
+    const handleAddToCart = () => {
+        addToCart(producto, cantidad);
+        alert('Agregaste ${cantidad} unidades de ${nombre} al carrito.');
     };
 
     return (
@@ -33,7 +46,7 @@ function Item ({id, nombre, imagen, precio}) {
             <div className={styles.actions}>
                 <Link to={`/producto/${id}`} className={styles.btn_detalles}>Detalles </Link>
 
-                <button className={styles.btn_agregar} onClick={AgregarClick}>Agregar al carrito</button>
+                <button className={styles.btn_agregar} onClick={handleAddToCart}>Agregar {cantidad} al carrito</button>
             </div>
         </div>
     )
