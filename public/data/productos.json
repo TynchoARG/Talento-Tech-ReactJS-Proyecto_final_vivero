@@ -4,6 +4,7 @@
     "nombre": "Suculenta Gasteria",
     "detalle": "Suculenta compacta de hojas moteadas, ideal para interiores luminosos y de fácil cuidado.",
     "precio": 8500,
+    "stock":10,
     "imagen": "/images/Planta01.jpg"
   },
   {
@@ -11,6 +12,7 @@
     "nombre": "Philodendron Brasil",
     "detalle": "Planta colgante de follaje verde intenso, resistente y perfecta para decorar interiores.",
     "precio": 6200,
+    "stock":12,
     "imagen": "/images/Planta02.jpg"
   },
   {
@@ -18,6 +20,7 @@
     "nombre": "Planta Moneda China",
     "detalle": "Planta ornamental de hojas redondeadas, muy apreciada por su estilo moderno y minimalista.",
     "precio": 4300,
+    "stock":8,
     "imagen": "/images/Planta03.jpg"
   },
   {
@@ -25,6 +28,7 @@
     "nombre": "Maceta de cerámica rosa",
     "detalle": "Maceta mediana con acabado mate y drenaje inferior.",
     "precio": 5700,
+    "stock":15,
     "imagen": "/images/Maceta01.jpg"
   },
   {
@@ -32,6 +36,7 @@
     "nombre": "Maceta de barro terracota",
     "detalle": "Maceta clásica de barro cocido para uso interior o exterior.",
     "precio": 2900,
+    "stock":5,
     "imagen": "/images/Maceta02.jpg"
   },
   {
@@ -39,6 +44,7 @@
     "nombre": "Set de herramientas de jardinería",
     "detalle": "Incluye pala, rastrillo y tijera de poda con mangos ergonómicos.",
     "precio": 9800,
+    "stock":20,
     "imagen":"/images/Herramientas01.jpg"
   },
   {
@@ -46,6 +52,7 @@
     "nombre": "Bolsa de tierra para jardinería",
     "detalle": "Sustrato universal enriquecido para plantas de interior y exterior.",
     "precio": 15000,
+    "stock":18,
     "imagen":"/images/Tierra01.jpg"
   }
 ]

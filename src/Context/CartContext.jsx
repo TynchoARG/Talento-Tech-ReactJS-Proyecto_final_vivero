@@ -33,10 +33,21 @@ export const CartProvider = ({ children }) => {
     }
   };
 
-  //Vaciar el carrito
-  const cleanCart = () => {
-    setCart([]);
+  //Eliminar un producto del carrito
+  const removeItem = (productoId) => {
+    const updatedCart = cart.filter(item => item.id !== productoId);
+    setCart(updatedCart);
   };
+
+  //Verificar si un producto ya está en el carrito
+  const isInCart =(productoId) => {
+    return cart.some(item => item.id === productoId);
+  };
+
+  //Vaciar el carrito
+  function cleanCart() {
+    setCart([]);
+  }
 
   //Cantidad en el carrito
   //Recorre el carrito y suma las cantidades. Muestra el número de productos en un icono
@@ -49,8 +60,23 @@ export const CartProvider = ({ children }) => {
     return cart.reduce((acc, item) => acc + item.precio * item.quantity, 0);
   };
 
+  //Obtener la cantidad de un item especifico.
+  const getCantidadActual = (productoId) => {
+    const item = cart.find((item) => item.id === productoId);
+    return item ? item.quantity : 0;
+  };
+
   return (
-    <CartContext.Provider value={{ cart, addToCart, cleanCart, getCartQuantity, getCartTotal }}>
+    <CartContext.Provider value={{ 
+      cart, 
+      getCantidadActual, 
+      addToCart, 
+      cleanCart, 
+      getCartQuantity, 
+      getCartTotal,
+      removeItem,
+      isInCart,
+      }}>
       {children}
     </CartContext.Provider>
   );

@@ -16,7 +16,7 @@ function Navbar () {
                 <li><Link to="/">Inicio</Link></li>
                 <li><Link to="/nosotros">Nosotros</Link></li>
                 <li><Link to="/productos">Productos</Link></li>
-                <li><Link to="/carrito">Carrito 🛒 {totalItems > 0 && <span>totalItems</span>} </Link></li>
+                <li><Link to="/carrito">Carrito 🛒 {totalItems} </Link></li>
             </ul>
         </nav>
     );
