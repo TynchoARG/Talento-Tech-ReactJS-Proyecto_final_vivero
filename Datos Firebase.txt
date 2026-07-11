@@ -1,0 +1,49 @@
+
+
+Nombre del proyecto: vivero-final-react
+
+Apodo: Tienda Talento Tech
+
+Datos para instalar la BD:
+
+1) Ejecutar en consola lo siguiente:
+
+	npm install firebase
+
+2) Luego inicializar Firebase y comenzar a usar el SDK que necesite con el siguiente código:
+
+	// Import the functions you need from the SDKs you need
+	import { initializeApp } from "firebase/app";
+	
+	// TODO: Add SDKs for Firebase products that you want to use
+	// https://firebase.google.com/docs/web/setup#available-libraries
+	
+	// Your web app's Firebase configuration
+	
+	const firebaseConfig = {
+  		apiKey: "AIzaSyBmXLM_p8d1mDvpeVJKlrtsF4PhACbdTfw",
+  		authDomain: "vivero-final-react.firebaseapp.com",
+  		projectId: "vivero-final-react",
+  		storageBucket: "vivero-final-react.firebasestorage.app",
+  		messagingSenderId: "965666259668",
+  		appId: "1:965666259668:web:8959b928101561ca2b3141"
+	};
+
+	// Initialize Firebase
+	const app = initializeApp(firebaseConfig);
+
+
+3) Nombre de la colección: productos-vivero
+
+4) Campos de la colección:
+	* id -> int64 -> lo pongo yo
+	* nombre -> string 
+	* categoría -> string -> plantas, macetas, insumos
+	* precio -> double
+	* stock -> int64
+	* imagen -> string -> ej: images/Planta01.jpg
+	* destacado -> boolean
+	* detalle -> string
+
+
+

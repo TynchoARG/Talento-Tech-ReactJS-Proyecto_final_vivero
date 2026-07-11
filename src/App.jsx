@@ -7,6 +7,7 @@ import CarritoPage from './Pages/CarritoPage';
 import ProductoDetalle from './Pages/ProductoDetalle';
 import NosotrosPage from './Pages/NosotrosPage';
 import Cart from './assets/componentes/Cart/Cart';
+import ProductosFS from './Pages/ProductosFS';
 
 function App() {
  return (
