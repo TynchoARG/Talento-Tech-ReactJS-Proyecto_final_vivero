@@ -38,12 +38,27 @@ Datos para instalar la BD:
 4) Campos de la colección:
 	* id -> int64 -> lo pongo yo
 	* nombre -> string 
-	* categoría -> string -> plantas, macetas, insumos
+	* categoria -> string -> plantas, macetas, insumos
 	* precio -> double
 	* stock -> int64
 	* imagen -> string -> ej: images/Planta01.jpg
 	* destacado -> boolean
 	* detalle -> string
 
+
+
+
+
+Datos Login
+
+user: admin@gmail.com
+password: admin1234
+
+
+   <li>
+          <Link to="/gestion">Gestión de Productos</Link>
+        </li>
+
+<Route path="/gestion" element={<GestionProductos />} />
 
 

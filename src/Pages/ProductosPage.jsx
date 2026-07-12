@@ -17,10 +17,10 @@ function ProductosPage ({ Mensaje }) {
             <section className={styles.productosContainer}>
                 <ItemListContainer Mensaje={Mensaje} />
             </section>
-
+{/*
             <section className={styles.formAltaProdContainaer}>
                 <FormularioContainer/>
-            </section>
+            </section>*/}
         </main>
     )
 }

@@ -45,9 +45,13 @@ function ItemListContainer({ Mensaje }) {
       .then((resp) => {
         setProductos(
           resp.docs.map((doc) => {
-            return { ...doc.data() };
+            const datos = doc.data();
+            return {
+              ...datos,
+              id: datos.id ?? doc.id,
+            };
           })
-        );  // ← Esto cierra setProductos
+        );
         setCargando(false);
       })
       .catch((error) => {
@@ -57,7 +61,7 @@ function ItemListContainer({ Mensaje }) {
       .finally(() => {
         setCargando(false);
       });
-  }, []);  // ← Esto cierra useEffect
+  }, []);
 
   if (cargando) return <p>Cargando Productos ... </p>;
 

@@ -18,6 +18,7 @@ function FormularioProducto({
         <input
           type="number"
           placeholder="08"
+          required
           name="id" // Atributo clave
           value={datosForm.id}
           onChange={manejarCambio}
@@ -27,6 +28,7 @@ function FormularioProducto({
         <input
           type="text"
           placeholder="Ejemplo: planta..."
+          required
           name="nombre" // Atributo para identificar el input
           value={datosForm.nombre}
           onChange={manejarCambio}

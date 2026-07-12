@@ -1,4 +1,4 @@
-import { useState, useContext, createContext } from "react";
+import { useState, useContext, createContext, useEffect } from "react";
 
 export const CartContext = createContext();
 
@@ -14,7 +14,15 @@ export const useCart = () => {
 
 //Creamos el CartProvider (el cerebro de todo)
 export const CartProvider = ({ children }) => {
-  const [cart, setCart] = useState([]); //El carrito arranca vacío.
+  const [cart, setCart] = useState(() => {
+    const savedCart = localStorage.getItem("cart");
+    return savedCart ? JSON.parse(savedCart) : [];
+  }); // El carrito primero busca en localStorage si hay productos
+
+  //Este useEffect guarda el carrito cada vez que muta, por el arreglo de dependencias
+  useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(cart));
+  }, [cart]);
 
   //Creamos las funciones que manejan el carrito
 
