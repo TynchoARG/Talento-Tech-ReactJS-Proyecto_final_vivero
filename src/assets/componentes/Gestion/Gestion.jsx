@@ -9,7 +9,7 @@ import {
   addDoc,
 } from "firebase/firestore";
 import FormularioProducto from "../FormularioAltaProducto/FormularioProducto";
-import styles from "./Gestion.module.css"; // 👈 Tu importación está perfecta
+import styles from "./Gestion.module.css";
 
 const estadoInicialForm = {
   id: 0,

@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { db } from "../../../firebase/config";
 import { collection, addDoc, getDocs, deleteDoc, doc, updateDoc } from "firebase/firestore";
-import styles from "./GestionCupones.module.css"; // 👈 Importación clave para los módulos
+import styles from "./GestionCupones.module.css"; 
 
 const estadoInicial = {
     codigo: "",
@@ -118,7 +118,7 @@ function GestionCupones () {
                         <input 
                             type="text"
                             name="codigo"
-                            placeholder="Ej: REGALOSURPRESA"
+                            placeholder="Ej: REGALOSORPRESA"
                             required
                             value={datosForm.codigo}
                             onChange={manejarCambio} 

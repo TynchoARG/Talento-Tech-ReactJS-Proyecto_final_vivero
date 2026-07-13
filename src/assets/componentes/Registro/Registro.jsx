@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
-import styles from "./Registro.module.css"; // 👈 Vinculación directa con el módulo
+import styles from "./Registro.module.css";
 
 const Registro = () => {
   const [email, setEmail] = useState("");
