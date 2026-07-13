@@ -1,33 +1,95 @@
 .formStyle {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    max-width: 300px;
-    margin: 3rem auto;
-    padding: 1.5rem;
-    border-radius: 24px;
-    background: var(--card);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.20);
-    border: 1px solid rgba(0, 0, 0, 0.06);
-    border-radius: 8px;
-    gap: 16px;
-    text-align: center;
-    }
+  display: flex;
+  flex-direction: column;
+  max-width: 650px; /* Lo hacemos un poco más ancho para que entren de a dos */
+  margin: 2rem auto;
+  padding: 2rem;
+  background: var(--card);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: 16px;
+  gap: 20px;
+}
+
+.formStyle h3 {
+  font-family: 'Playfair Display', serif;
+  color: var(--texto);
+  margin-bottom: 5px;
+  font-size: 1.4rem;
+}
+
+/* El contenedor de los campos ahora los organiza en filas de dos */
+.formStyle .grid_campos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  width: 100%;
+}
+
+/* Cada bloque (label + input) ocupará el 50% menos el espacio del gap */
+.formStyle .campo_grupo {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 calc(50% - 16px);
+  min-width: 240px; /* Evita que se colapsen si se achica la pantalla */
+  text-align: left;
+}
+
+/* El campo detalle y el de imagen van a ocupar el 100% de ancho abajo */
+.formStyle .campo_ancho_completo {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 100%;
+  text-align: left;
+}
+
+.formStyle label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--texto);
+  margin-bottom: 6px;
+}
+
+.formStyle input[type="text"],
+.formStyle input[type="number"],
+.formStyle select,
+.formStyle textarea {
+  width: 100%; /* Ahora ocupan el 100% de su contenedor asignado */
+  padding: 10px 12px;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 8px;
+  background-color: white;
+  font-family: inherit;
+  font-size: 0.9rem;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.formStyle input:focus,
+.formStyle select:focus,
+.formStyle textarea:focus {
+  border-color: var(--verde-principal);
+  box-shadow: 0 0 0 3px rgba(47, 93, 80, 0.12);
+}
 
 .btn_guardarProd {
-    width: 90%;
-    padding: 12px 14px;
-    border: none;
-    border-radius: 14px;
-    box-sizing: border-box;
-    font-weight: 600;
-    cursor: pointer;
-    background-color:  var(--verde-principal);
-    color: var(--texto-claro);
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  background-color: var(--verde-principal);
+  color: var(--texto-claro);
+  margin-top: 10px;
+  transition: background 0.2s, transform 0.1s;
 }
 
 .btn_guardarProd:hover {
-    transform: translateY(-1px);
-    filter: brightness(0.92);
-    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+  background-color: var(--hover);
+}
+
+.btn_guardarProd:active {
+  transform: scale(0.99);
 }

@@ -9,6 +9,7 @@ import {
   addDoc,
 } from "firebase/firestore";
 import FormularioProducto from "../FormularioAltaProducto/FormularioProducto";
+import styles from "./Gestion.module.css"; // 👈 Tu importación está perfecta
 
 const estadoInicialForm = {
   id: 0,
@@ -29,7 +30,6 @@ const GestionProductos = () => {
 
   const manejarCambio = (evento) => {
     const { name, value } = evento.target;
-
     let valorFinal = value;
 
     if (name === "precio" || name === "stock" || name === "id") {
@@ -83,16 +83,12 @@ const GestionProductos = () => {
     }
   };
 
-  const cancelarEdicion = () => {
-    setProductoAEditar(null);
-  }
-
   const manejarEnvio = async (evento) => {
     evento.preventDefault();
 
     if (datosForm.nombre.trim() === "" || datosForm.precio <=0 || datosForm.stock <=0) {
       alert ("Por favor, complete todos los datos y verifique que el precio y el stock sea mayor a cero.");
-      return; // Detiene la ejecución de la función
+      return;
     }
 
     try {
@@ -151,26 +147,40 @@ const GestionProductos = () => {
   };
 
   return (
-    <div>
-      <h2 style={{textAlign:'center'}}>Gestión de Productos</h2>
-      <hr />
+    <div className={styles.gestion_container}>
+      <h2 style={{ textAlign: 'center', marginTop: '2rem', fontFamily: 'Playfair Display, serif', color: 'var(--texto)' }}>
+        Gestión de Productos
+      </h2>
+      
       <FormularioProducto
         datosForm={datosForm}
         manejarCambio={manejarCambio}
         manejarCambioImagen={manejarCambioImagen}
         manejarEnvio={manejarEnvio}
       />
-      <hr />
-      <h3 style={{textAlign:'center'}}>Lista de Productos</h3>
-      <ul>
-        {productos.map((prod) => (
-          <li key={prod.id} style={{marginLeft:'10px'}}>
-            {prod.nombre} | ${prod.precio} | Stock: {prod.stock}
-            <button onClick={() => handleEditClick(prod)} style={{margin:'10px'}} >Editar</button>
-            <button onClick={() => handleDelete(prod.id)} style={{marginBottom:'3px'}}>Eliminar</button>
-          </li>
-        ))}
-      </ul>
+      
+      {/* Modificados los className para usar el objeto styles */}
+      <div className={styles.lista_section}>
+        <h3 style={{ textAlign: 'center', marginBottom: '2rem', fontFamily: 'Playfair Display, serif', color: 'var(--texto)' }}>
+          Lista de Productos Activos
+        </h3>
+        
+        <div className={styles.productos_tabla}>
+          {productos.map((prod) => (
+            <div key={prod.id} className={styles.producto_fila}>
+              <div className={styles.prod_info}>
+                <span className={styles.prod_name}>{prod.nombre}</span>
+                <span className={styles.prod_meta}>Precio: <strong>${prod.precio}</strong></span>
+                <span className={styles.prod_meta}>Stock: <strong>{prod.stock} u.</strong></span>
+              </div>
+              <div className={styles.prod_acciones}>
+                <button onClick={() => handleEditClick(prod)} className={styles.btn_editar}>Editar</button>
+                <button onClick={() => handleDelete(prod.id)} className={styles.btn_eliminar}>Eliminar</button>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
     </div>
   );
 };

@@ -1,0 +1,227 @@
+/* Contenedor central de la página de compras */
+.cart_container {
+  max-width: 900px;
+  margin: 3rem auto 5rem;
+  padding: 0 20px;
+}
+
+.cart_title {
+  text-align: center;
+  margin-bottom: 2.5rem;
+  font-family: 'Playfair Display', serif;
+  color: var(--texto);
+}
+
+/* Listado de ítems */
+.cart_list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px; /* Más aire entre los productos del carrito */
+  margin-bottom: 2.5rem;
+}
+
+/* Tarjeta individual por producto en el carrito */
+.cart_item {
+  background-color: var(--card);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: 12px;
+  padding: 20px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+}
+
+.item_details {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex-grow: 1;
+}
+
+.item_name {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--texto);
+  margin: 0;
+}
+
+/* Alineación de precio, cantidad y subtotal en una línea con aire */
+.item_meta_grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  align-items: center;
+}
+
+.item_meta {
+  font-size: 0.95rem;
+  color: #555;
+}
+
+.item_subtotal {
+  font-size: 0.95rem;
+  color: var(--texto);
+}
+
+.item_subtotal strong {
+  color: var(--verde-principal);
+}
+
+/* --- Panel de totales inferior --- */
+.cart_summary {
+  background-color: var(--fondo-contenedor);
+  border-radius: 12px;
+  padding: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+.total_text {
+  font-size: 1.3rem;
+  color: var(--texto);
+  margin: 0;
+}
+
+.total_text span {
+  color: var(--verde-principal);
+  font-weight: 700;
+}
+
+.summary_actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* --- Estilos de Botones y Enlaces --- */
+.btn_eliminar {
+  background-color: var(--terracota);
+  color: var(--texto-claro);
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.btn_eliminar:hover {
+  background-color: #b0654e;
+}
+
+.btn_vaciar {
+  background-color: transparent;
+  color: #666;
+  border: 1px solid #ccc;
+  padding: 10px 18px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn_vaciar:hover {
+  background-color: rgba(0,0,0,0.05);
+  color: var(--texto);
+}
+
+.btn_finalizar {
+  background-color: var(--verde-principal);
+  color: var(--texto-claro);
+  text-decoration: none;
+  padding: 11px 22px;
+  border-radius: 8px;
+  font-weight: 600;
+  display: inline-block;
+  transition: background-color 0.2s, transform 0.1s;
+}
+
+.btn_finalizar:hover {
+  background-color: var(--hover);
+}
+
+.btn_finalizar:active, .btn_eliminar:active {
+  transform: scale(0.97);
+}
+
+/* --- Estado de Carrito Vacío --- */
+.carrito_vacio {
+  text-align: center;
+  padding: 4rem 20px;
+  background-color: var(--card);
+  max-width: 500px;
+  margin: 4rem auto;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+.carrito_vacio h2 {
+  font-family: 'Playfair Display', serif;
+  color: var(--texto);
+  margin-bottom: 10px;
+}
+
+.carrito_vacio p {
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.btn_volver {
+  background-color: var(--verde-principal);
+  color: var(--texto-claro);
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-weight: 600;
+  display: inline-block;
+  transition: background-color 0.2s;
+}
+
+.btn_volver:hover {
+  background-color: var(--hover);
+}
+
+/* --- RESPONSIVE EN CELULARES --- */
+@media (max-width: 650px) {
+  .cart_item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 16px;
+  }
+
+  .item_meta_grid {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+    width: 100%;
+  }
+
+  .btn_eliminar {
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+  }
+
+  .cart_summary {
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+    padding: 20px;
+  }
+
+  .summary_actions {
+    flex-direction: column-reverse; /* El botón de vaciar queda abajo del de finalizar */
+    width: 100%;
+    gap: 10px;
+  }
+
+  .btn_vaciar, .btn_finalizar {
+    width: 100%;
+    text-align: center;
+    box-sizing: border-box;
+  }
+}

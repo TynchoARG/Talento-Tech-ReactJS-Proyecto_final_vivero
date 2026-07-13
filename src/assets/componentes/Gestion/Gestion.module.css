@@ -1,0 +1,127 @@
+/* Contenedor general */
+.gestion_container {
+  width: 100%;
+}
+
+/* Sección de listado con más aire */
+.lista_section {
+  max-width: 900px;
+  margin: 4rem auto 5rem;
+  padding: 0 20px;
+}
+
+/* La grilla con más espacio entre las filas */
+.productos_tabla {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* 👈 Más aire para que no se vea todo pegado */
+}
+
+/* Fila de producto espaciada y redondeada */
+.producto_fila {
+  background-color: var(--card);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 12px;
+  padding: 20px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+}
+
+/* Textos informativos con buena distancia */
+.prod_info {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.prod_name {
+  font-weight: 600;
+  color: var(--texto);
+  font-size: 1.1rem;
+  min-width: 220px;
+}
+
+.prod_meta {
+  font-size: 0.95rem;
+  color: #4a4a4a;
+}
+
+.prod_meta strong {
+  color: var(--verde-principal);
+}
+
+/* Botones de acción bien espaciados */
+.prod_acciones {
+  display: flex;
+  gap: 12px; /* 👈 Separa un botón del otro */
+}
+
+.prod_acciones button {
+  padding: 8px 18px;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.1s;
+}
+
+/* Verde principal para editar */
+.btn_editar {
+  background-color: var(--verde-principal);
+  color: var(--texto-claro);
+}
+
+.btn_editar:hover {
+  background-color: var(--hover);
+}
+
+/* Terracota para eliminar */
+.btn_eliminar {
+  background-color: var(--terracota);
+  color: var(--texto-claro);
+}
+
+.btn_eliminar:hover {
+  background-color: #b0654e;
+}
+
+.prod_acciones button:active {
+  transform: scale(0.96);
+}
+
+/* --- RESPONSIVE EN CELULARES --- */
+@media (max-width: 650px) {
+  .producto_fila {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 20px;
+  }
+
+  .prod_info {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    width: 100%;
+  }
+
+  .prod_name {
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+    padding-bottom: 6px;
+    width: 100%;
+  }
+
+  .prod_acciones {
+    width: 100%;
+    gap: 10px;
+  }
+
+  .prod_acciones button {
+    flex: 1;
+    padding: 12px;
+  }
+}

@@ -1,0 +1,242 @@
+/* Contenedor general */
+.gestion_container {
+  width: 100%;
+  padding: 0 10px;
+}
+
+.main_title {
+  text-align: center;
+  margin-top: 2rem;
+  font-family: 'Playfair Display', serif;
+  color: var(--texto);
+}
+
+/* --- Formulario de Cupones de alta consistencia --- */
+.formStyle {
+  display: flex;
+  flex-direction: column;
+  max-width: 550px; /* Un poco más angosto que productos porque son menos campos */
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: var(--card);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: 16px;
+  gap: 20px;
+}
+
+.formStyle h3 {
+  font-family: 'Playfair Display', serif;
+  color: var(--texto);
+  font-size: 1.3rem;
+  text-align: center;
+  margin: 0;
+}
+
+/* Alinea los dos inputs en una sola fila en PC */
+.grid_campos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  width: 100%;
+}
+
+.campo_grupo {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 calc(50% - 16px);
+  min-width: 200px;
+}
+
+.formStyle label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--texto);
+  margin-bottom: 6px;
+}
+
+.formStyle input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 8px;
+  background-color: white;
+  font-family: inherit;
+  font-size: 0.9rem;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.formStyle input:focus {
+  border-color: var(--verde-principal);
+  box-shadow: 0 0 0 3px rgba(47, 93, 80, 0.12);
+}
+
+/* Botones del Formulario */
+.form_acciones {
+  display: flex;
+  gap: 12px;
+  width: 100%;
+}
+
+.btn_guardar, .btn_cancelar {
+  flex: 1;
+  padding: 11px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.1s;
+}
+
+.btn_guardar {
+  background-color: var(--verde-principal);
+  color: var(--texto-claro);
+}
+
+.btn_guardar:hover {
+  background-color: var(--hover);
+}
+
+.btn_cancelar {
+  background-color: #757575;
+  color: white;
+}
+
+.btn_cancelar:hover {
+  background-color: #555555;
+}
+
+/* --- Sección del Listado Activo --- */
+.lista_section {
+  max-width: 800px;
+  margin: 3.5rem auto 5rem;
+}
+
+.lista_title {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-family: 'Playfair Display', serif;
+  color: var(--texto);
+}
+
+.cupones_tabla {
+  display: flex;
+  flex-direction: column;
+  gap: 18px; /* Espacio generoso entre filas */
+}
+
+/* Tarjeta individual del cupón */
+.cupon_fila {
+  background-color: var(--card);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 12px;
+  padding: 18px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+}
+
+.cupon_info {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 32px; /* Gran separación interna de los datos */
+}
+
+.cupon_code {
+  font-size: 1.05rem;
+  color: var(--texto);
+  min-width: 220px;
+}
+
+.cupon_code strong {
+  background-color: var(--verde-suave);
+  color: var(--texto);
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-family: monospace;
+  font-size: 1rem;
+}
+
+.cupon_discount {
+  font-size: 1rem;
+  color: #4a4a4a;
+}
+
+.cupon_discount strong {
+  color: var(--terracota);
+}
+
+/* Botones de acciones de la fila */
+.cupon_acciones {
+  display: flex;
+  gap: 12px; /* Botones separados */
+}
+
+.cupon_acciones button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.1s;
+}
+
+.btn_editar {
+  background-color: var(--verde-principal);
+  color: var(--texto-claro);
+}
+
+.btn_editar:hover {
+  background-color: var(--hover);
+}
+
+.btn_eliminar {
+  background-color: var(--terracota);
+  color: var(--texto-claro);
+}
+
+.btn_eliminar:hover {
+  background-color: #b0654e;
+}
+
+.cupon_acciones button:active, .form_acciones button:active {
+  transform: scale(0.96);
+}
+
+/* --- RESPONSIVE EN CELULARES --- */
+@media (max-width: 650px) {
+  .cupon_fila {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 20px;
+  }
+
+  .cupon_info {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    width: 100%;
+  }
+
+  .cupon_code {
+    width: 100%;
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+    padding-bottom: 6px;
+  }
+
+  .cupon_acciones {
+    width: 100%;
+    gap: 10px;
+  }
+
+  .cupon_acciones button {
+    flex: 1;
+    padding: 12px;
+  }
+}

@@ -1,61 +1,55 @@
-/* Estilos del Navbar */
-/* Contenedor principal de la navegación */
+/* Contenedor Base: Por defecto para USUARIO COMÚN (Todo en una línea) */
 .Navbar {
   background-color: transparent;
   display: flex;
-  flex-direction: column; /* Para apilar el bloque común arriba y el bloque admin abajo */
-  gap: 12px;
+  flex-direction: row; /* En línea */
+  align-items: center;
+  justify-content: flex-end;
+  gap: 24px;
   width: 100%;
 }
 
-/* Estilos base compartidos por ambas listas */
-.ul_comun,
-.ul_admin {
+/* Lista de navegación */
+.nav_links {
   list-style: none;
   display: flex;
   flex-wrap: wrap;
-  justify-content: flex-end; /* Por defecto los alinea a la derecha en PC */
   align-items: center;
   gap: 16px;
   margin: 0;
   padding: 0;
-  width: 100%;
 }
 
-/* El bloque de administración puede tener un sutil separador visual o un color diferente si querés */
-.ul_admin {
-  border-top: 1px solid rgba(255, 255, 255, 0.15);
-  padding-top: 8px;
-}
-
-.ul_comun li,
-.ul_admin li {
+.nav_links li {
   font-size: 0.95rem;
   border-radius: 6px;
-  transition: background 0.25s ease, color 0.25s ease;
+  transition: background 0.25s ease;
 }
 
-.ul_comun li a,
-.ul_admin li a {
+.nav_links li a {
   color: var(--texto-claro);
   text-decoration: none;
   display: inline-block;
   padding: 6px 12px;
 }
 
-.ul_comun li:hover,
-.ul_admin li a:hover {
+.nav_links li:hover {
   background: rgba(255, 255, 255, 0.12);
 }
 
-/* Saludo del usuario */
-.user_saludo span {
-  color: var(--texto-secundario);
-  font-size: 0.9rem;
-  padding: 0 4px;
+/* Bloque de sesión: ¡Hola! + Botón juntos en la misma línea */
+.user_session {
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
 
-/* Botón de cerrar sesión */
+.user_saludo {
+  color: var(--texto-secundario);
+  font-size: 0.9rem;
+  white-space: nowrap;
+}
+
 .logout_btn {
   background-color: var(--terracota);
   color: white;
@@ -65,34 +59,51 @@
   cursor: pointer;
   font-family: inherit;
   transition: background 0.2s;
+  white-space: nowrap;
 }
 
 .logout_btn:hover {
   background-color: #b0654e;
 }
 
-/* --- RESPONSIVE: Ajustes para Celulares (pantallas menores a 768px) --- */
+/* ==========================================================================
+   CASO EXCLUSIVO ADMIN: Si es administrador, forzamos las dos líneas en PC 
+   ========================================================================== */
+@media (min-width: 769px) {
+  .NavbarAdmin {
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 10px;
+  }
+
+  .NavbarAdmin .user_session {
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    padding-top: 6px;
+    width: 100%;
+    justify-content: flex-end;
+  }
+}
+
+/* ==========================================================================
+   RESPONSIVE: Celulares (Todo colapsa verticalmente para que entre impecable)
+   ========================================================================== */
 @media (max-width: 768px) {
   .Navbar {
+    flex-direction: column;
     gap: 16px;
   }
 
-  .ul_comun,
-  .ul_admin {
-    flex-direction: column; /* Se listan verticalmente uno abajo del otro */
-    justify-content: center;
-    gap: 8px;
-  }
-
-  .ul_admin {
-    padding-top: 12px;
-  }
-
-  .ul_comun li,
-  .ul_admin li,
-  .ul_comun li a,
-  .ul_admin li a {
+  .nav_links, 
+  .user_session {
+    flex-direction: column;
     width: 100%;
+    gap: 8px;
     text-align: center;
+    justify-content: center;
+  }
+
+  .nav_links li,
+  .nav_links li a {
+    width: 100%;
   }
 }

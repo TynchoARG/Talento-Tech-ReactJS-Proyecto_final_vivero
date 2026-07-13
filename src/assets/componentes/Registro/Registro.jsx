@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import styles from "./Registro.module.css"; // 👈 Vinculación directa con el módulo
 
 const Registro = () => {
   const [email, setEmail] = useState("");
@@ -11,53 +12,46 @@ const Registro = () => {
   
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setError(null); // Reseteamos cualquier error previo
+    setError(null); 
     try {
-      // Intentamos crear el nuevo usuario en Firebase
       await createUserWithEmailAndPassword(auth, email, password);
-      // Si la creación es exitosa, lo redirigimos al inicio
-      // Firebase ya gestiona el estado de sesión automáticamente
       navigate("/");
     } catch (error) {
-      // Aquí es donde manejamos el caso específico que nos interesa
       if (error.code === "auth/email-already-in-use") {
-        // Usamos window.confirm para hacer la pregunta al usuario
         const quiereLoguearse = window.confirm(
           "Este correo electrónico ya está registrado. ¿Desea intentar iniciar sesión?",
         );
         if (quiereLoguearse) {
-          // Si el usuario confirma, lo redirigimos a la página de
-          login;
           navigate("/login");
         } else {
-          // Si el usuario cancela, lo redirigimos a la página de
-          inicio;
           navigate("/");
         }
       } else {
-        // Para cualquier otro error (contraseña débil, email inválido, etc.),
-        // mostramos un mensaje genérico.
         setError(
-          "Ocurrió un error al registrar el usuario. Verifiquelos datos e intente nuevamente.",
+          "Ocurrió un error al registrar el usuario. Verifique los datos e intente nuevamente.",
         );
         console.error("Error en el registro:", error.message);
       }
     }
   };
+
   return (
-    <div className="auth-container">
+    <div className={styles.auth_container}>
       <h2>Crear una nueva cuenta</h2>
-      <form onSubmit={handleSubmit}>
-        <div className="form-group">
+      
+      <form onSubmit={handleSubmit} className={styles.form_body}>
+        <div className={styles.form_group}>
           <label>Correo Electrónico</label>
           <input
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
+            placeholder="ejemplo@correo.com"
             required
           />
         </div>
-        <div className="form-group">
+        
+        <div className={styles.form_group}>
           <label>Contraseña</label>
           <input
             type="password"
@@ -67,10 +61,15 @@ const Registro = () => {
             placeholder="Mínimo 6 caracteres"
           />
         </div>
-        {error && <p className="error-message">{error}</p>}
-        <button type="submit">Registrarse</button>
+        
+        {error && <p className={styles.error_message}>{error}</p>}
+        
+        <button type="submit" className={styles.btn_registrarse}>
+          Registrarse
+        </button>
       </form>
     </div>
   );
 };
+
 export default Registro;
