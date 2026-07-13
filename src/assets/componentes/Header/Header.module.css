@@ -2,6 +2,7 @@
 .header {
   background-color: var(--verde-principal);
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
   gap: 16px;
@@ -42,4 +43,12 @@
   margin: 3px 0 0;
   font-size: 0.92rem;
   color: var(--texto-secundario)
+}
+
+/* Estilos para celulares (pantallas menores a 768px) */
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column; /* Apila los elementos uno abajo del otro */
+    }
+    
 }

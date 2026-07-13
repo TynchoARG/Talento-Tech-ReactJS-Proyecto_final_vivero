@@ -2,10 +2,14 @@
 .Navbar {
   background-color: transparent;
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   padding: 6px 10px;
   border-radius: 8px;
   color: var(--texto-claro);
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .ul {
@@ -33,4 +37,12 @@
 .ul li:hover {
   background: rgba(255, 255, 255, 0.12);
   color: #f1f7fa;
+}
+
+/* Estilos para celulares (pantallas menores a 768px) */
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column; /* Apila los elementos uno abajo del otro */
+    }
+    
 }
