@@ -9,6 +9,7 @@ import {
   getDocs,
 } from "firebase/firestore";
 import { db } from "../firebase/config";
+import styles from "./ProductoDetalle.module.css";
 
 const ProductoDetalle = () => {
   const { id } = useParams();
@@ -59,33 +60,45 @@ const ProductoDetalle = () => {
     cargarProducto();
   }, [id]);
 
+  // Mensajes de carga/error consistentes con tus tarjetas
   if (cargando) {
-    return <h2>Cargando detalle del producto ...</h2>;
+    return <h2 className={styles.mensaje_estado}>Cargando detalle del producto...</h2>;
   }
 
   if (!producto) {
-    return <h2>Producto no encontrado.</h2>;
+    return <h2 className={styles.mensaje_estado}>Producto no encontrado.</h2>;
   }
 
   return (
-    <div
-      style={{ display: "column", padding: "20px"}}
-    >
-      <div style={{backgroundColor:"#cbc6c6", width:'500px'}}>
-        <h2>Detalle del Producto: {producto.nombre}</h2>
-        <p>
-          Mostrando información del producto con ID: <strong>{id}</strong>
-        </p>
-        <img
-          src={producto.imagen}
-          alt={producto.nombre}
-          width="200"
-          height="200"
-          style={{ borderRadius: "10px", alignContent:'center'}}
-        />
-        <h3>${producto.precio}</h3>
-        <p>{producto.detalle}</p>
-        <Link to={"/productos"}>Volver al catalogo</Link>
+    <div className={styles.detalle_container}>
+      <div className={styles.detalle_card}>
+        
+        {/* Contenedor izquierdo: Imagen elástica */}
+        <div className={styles.imagen_wrapper}>
+          <img
+            src={producto.imagen}
+            alt={producto.nombre}
+          />
+        </div>
+        
+        {/* Contenedor derecho: Información del Producto */}
+        <div className={styles.info_wrapper}>
+          <span className={styles.categoria_tag}>{producto.categoria}</span>
+          <h2>{producto.nombre}</h2>
+          <h3 className={styles.precio_tag}>${producto.precio}</h3>
+          
+          <div className={styles.descripcion_bloque}>
+            <h4>Descripción</h4>
+            <p>{producto.detalle || "Este producto no cuenta con una descripción detallada todavía."}</p>
+          </div>
+          
+          <div className={styles.acciones_wrapper}>
+            <Link to="/productos" className={styles.btn_volver}>
+              Volver al catálogo
+            </Link>
+          </div>
+        </div>
+
       </div>
     </div>
   );
