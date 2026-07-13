@@ -1,48 +1,98 @@
 /* Estilos del Navbar */
+/* Contenedor principal de la navegación */
 .Navbar {
   background-color: transparent;
   display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  padding: 6px 10px;
-  border-radius: 8px;
-  color: var(--texto-claro);
+  flex-direction: column; /* Para apilar el bloque común arriba y el bloque admin abajo */
+  gap: 12px;
   width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
 }
 
-.ul {
+/* Estilos base compartidos por ambas listas */
+.ul_comun,
+.ul_admin {
   list-style: none;
   display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end; /* Por defecto los alinea a la derecha en PC */
+  align-items: center;
   gap: 16px;
   margin: 0;
   padding: 0;
+  width: 100%;
 }
 
-.ul li {
-  cursor: pointer;
-  font-size: 0.9rem;
-  padding: 6px 10px;
+/* El bloque de administración puede tener un sutil separador visual o un color diferente si querés */
+.ul_admin {
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  padding-top: 8px;
+}
+
+.ul_comun li,
+.ul_admin li {
+  font-size: 0.95rem;
   border-radius: 6px;
   transition: background 0.25s ease, color 0.25s ease;
 }
 
-.ul li a {
-  color: inherit;
+.ul_comun li a,
+.ul_admin li a {
+  color: var(--texto-claro);
   text-decoration: none;
   display: inline-block;
+  padding: 6px 12px;
 }
 
-.ul li:hover {
+.ul_comun li:hover,
+.ul_admin li a:hover {
   background: rgba(255, 255, 255, 0.12);
-  color: #f1f7fa;
 }
 
-/* Estilos para celulares (pantallas menores a 768px) */
+/* Saludo del usuario */
+.user_saludo span {
+  color: var(--texto-secundario);
+  font-size: 0.9rem;
+  padding: 0 4px;
+}
+
+/* Botón de cerrar sesión */
+.logout_btn {
+  background-color: var(--terracota);
+  color: white;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: inherit;
+  transition: background 0.2s;
+}
+
+.logout_btn:hover {
+  background-color: #b0654e;
+}
+
+/* --- RESPONSIVE: Ajustes para Celulares (pantallas menores a 768px) --- */
 @media (max-width: 768px) {
-    .header {
-        flex-direction: column; /* Apila los elementos uno abajo del otro */
-    }
-    
+  .Navbar {
+    gap: 16px;
+  }
+
+  .ul_comun,
+  .ul_admin {
+    flex-direction: column; /* Se listan verticalmente uno abajo del otro */
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .ul_admin {
+    padding-top: 12px;
+  }
+
+  .ul_comun li,
+  .ul_admin li,
+  .ul_comun li a,
+  .ul_admin li a {
+    width: 100%;
+    text-align: center;
+  }
 }

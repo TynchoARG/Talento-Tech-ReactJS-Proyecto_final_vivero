@@ -1,19 +1,22 @@
-/* Estilos para el header */
+/* Estilos para el contenedor Header principal */
 .header {
   background-color: var(--verde-principal);
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: row; /* En PC se colocan lado a lado: Brand a la izq, Navbar a la der */
   align-items: center;
   justify-content: space-between;
-  gap: 16px;
-  padding: 12px 14px;
+  gap: 24px;
+  padding: 16px 32px;
   border-bottom: 2px solid var(--terracota-suave);
+  width: 100%;
 }
 
+/* Bloque contenedor de la identidad de marca */
 .header_brand {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 16px;
+  flex-shrink: 0; /* Evita que el logo se aplaste si el espacio se reduce */
 }
 
 .header_logo {
@@ -22,7 +25,7 @@
 }
 
 .header_logo img {
-  width: 200px;
+  width: 70px; /* Tamaño optimizado del icono de la hoja para que combine en horizontal */
   height: auto;
   object-fit: cover;
 }
@@ -35,20 +38,34 @@
 
 .header_title {
   margin: 0;
-  font-size: 1.6rem;
+  font-size: 1.7rem;
   color: var(--texto-claro);
+  font-family: 'Playfair Display', serif;
+  white-space: nowrap; /* Evita que el nombre del vivero se parta en dos renglones en PC */
 }
 
 .header_subtitle {
-  margin: 3px 0 0;
+  margin: 2px 0 0;
   font-size: 0.92rem;
-  color: var(--texto-secundario)
+  color: var(--texto-secundario);
 }
 
-/* Estilos para celulares (pantallas menores a 768px) */
-@media (max-width: 768px) {
-    .header {
-        flex-direction: column; /* Apila los elementos uno abajo del otro */
-    }
-    
+/* --- RESPONSIVE: Cambios estructurales para Tablets y Celulares --- */
+@media (max-width: 1024px) {
+  .header {
+    flex-direction: column; /* Pasa a diseño vertical cuando el espacio es intermedio o chico */
+    text-align: center;
+    justify-content: center;
+    padding: 16px;
+    gap: 16px;
+  }
+
+  .header_brand {
+    flex-direction: column; /* Apila el isotipo arriba de los textos en pantallas chicas */
+    gap: 8px;
+  }
+  
+  .header_title {
+    white-space: normal;
+  }
 }
